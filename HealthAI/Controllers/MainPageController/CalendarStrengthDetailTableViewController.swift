@@ -49,12 +49,6 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
                     subworkouts.append(strengthWorkoutHistories![i].subworkoutItems[j].title)
                     times.append(String(format:"%.1f",Double(strengthWorkoutHistories![i].subworkoutItems[j].time) / 60))
                     
-                    print(strengthWorkoutHistories![j].title)
-                    
-                    print("Subworkout Time:",String(strengthWorkoutHistories![i].subworkoutItems[j].time))
-                    
-                    print("Subworkout Title:",strengthWorkoutHistories![i].subworkoutItems[j].title )
-                    
                 }
                 
             }

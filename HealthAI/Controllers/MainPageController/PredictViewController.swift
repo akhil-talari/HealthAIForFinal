@@ -81,66 +81,84 @@ class PredictViewController: UIViewController,ChartViewDelegate {
             print(ageArray)
             print(ageArray[ageArray.count-1])
             
+            print("*********BMI**************")
             var BMIArray = [Double]()
             
             for i in 0...(heightArray.count-1){
                 var BMIvalues = weightArray[i]/((heightArray[i]/100) * (heightArray[i]/100))
                 BMIArray.insert(BMIvalues, at: i)
-                print(i, BMIvalues)
             }
+            
             print(BMIArray)
             
+            var averageChange:Double = 0.0
+            var averageBMI:Double = 0.0
+            var BMITotal = BMIArray.reduce(0, +)
+            var newBMIValues = [Double]()
+            
+            for i in 1...BMIArray.count - 1 {
+                averageChange += BMIArray[i - 1] - BMIArray[i]
+            }
+            
+            averageChange = averageChange/Double(BMIArray.count)
+            averageBMI = BMITotal/Double(BMIArray.count)
+            
+            print(averageChange,averageBMI)
+            
             for i in 0...2{
-                var BMITotal = BMIArray.reduce(0, +)
-                BMITotal = BMITotal - BMIArray[BMIArray.count - 1]
-                var avgBMIIncrease = (BMIArray[BMIArray.count - 1] - (BMITotal/Double(BMIArray.count - 1)))/Double(BMIArray.count)
-                
-                print("AverageBMIIncrease")
-                print(avgBMIIncrease)
-                
-                var bloodPressureTotal:Double = bloodPressureArray.reduce(0, +)
-                bloodPressureTotal = bloodPressureTotal - bloodPressureArray[bloodPressureArray.count - 1]
-                var avgBPIncrease = (bloodPressureArray[bloodPressureArray.count - 1] - (bloodPressureTotal/Double(bloodPressureArray.count - 1)))/Double(bloodPressureArray.count)
-                
-                print("AverageBPIncrease")
-                print(avgBPIncrease)
-                
-                //        let BMIDifference = BMITotal/Double(BMIArray.count) - BMIArray[BMIArray.count-1]
-                //            print("BMIDifference")
-                //            print(BMIDifference)
-                //
-                //        let bloodPressureDifference = bloodPressureTotal/Double(bloodPressureArray.count) - bloodPressureArray[bloodPressureArray.count - 1]
-                //            print("bloodPressureDifference")
-                //            print(bloodPressureDifference)
-                
-                let nextBloodPressure = (Double(bloodPressureArray[bloodPressureArray.count - 1]) + Double(avgBPIncrease))
-                print("nextBloodPressure")
-                print(nextBloodPressure)
-                bloodPressureArray.append(nextBloodPressure)
-                let eqnBp = 0.04212 * nextBloodPressure
-                
-                let nextBMI = (Double(BMIArray[BMIArray.count-1]) + Double(avgBMIIncrease))
-                print("nextBMI")
-                print(nextBMI)
-                BMIArray.append(nextBMI)
-                let eqnBMI = 0.82873 * nextBMI
-                
-                let nextAge = (Double(ageArray[ageArray.count-1]) + Double(1))
-                print("nextAge")
-                print(nextAge)
+                averageBMI += averageChange
+                newBMIValues.append(averageBMI)
+            }
+            
+            print(newBMIValues)
+            
+            print("*******BloodPressure************")
+            
+            var averageChangeBP:Double = 0.0
+            var averageBP:Double = 0.0
+            var BPTotal = bloodPressureArray.reduce(0, +)
+            var newBPValues = [Double]()
+            
+            for i in 1...bloodPressureArray.count - 1 {
+                averageChangeBP += bloodPressureArray[i - 1] - bloodPressureArray[i]
+            }
+            
+            averageChangeBP = averageChangeBP/Double(bloodPressureArray.count)
+            averageBP = BPTotal/Double(bloodPressureArray.count)
+            
+            print(averageChangeBP,averageBP)
+            
+            for i in 0...2{
+                averageBP += averageChangeBP
+                newBPValues.append(averageBMI)
+            }
+            
+            print(newBPValues)
+            
+            
+            print("*******Age************")
+            var newAge = [Double]()
+            var nextAge:Double = 0.0
+            for i in 0...2{
+                nextAge = ageArray[ageArray.count - 1] + 1
                 ageArray.append(nextAge)
-                let eqnAge = 0.66087 * nextAge
-                
-                let predictiveGlucoseValue = 69.66151 + eqnBp + eqnBMI + eqnAge
-                glucoseArray.append(predictiveGlucoseValue)
-                
-                print(avgBPIncrease, avgBMIIncrease, nextAge)
-                
-                print("Predicted Glucose Value")
-                print(predictiveGlucoseValue)
-                
-                //        print(BMIArray)
-                //        print(graphValuesArray)
+                newAge.append(nextAge)
+            }
+
+            print(newAge,nextAge)
+            
+            var eqnBMI:Double = 0.0
+            var eqnAge:Double = 0.0
+            var eqnBp:Double = 0.0
+            var eqnGlucose:Double = 0.0
+            
+            for i in 0...2 {
+                eqnBMI = 0.82873 * newBMIValues[i]
+                eqnAge = 0.66087 * newAge[i]
+                eqnBp = 0.04212 * newBPValues[i]
+                eqnGlucose = 69.66151 + eqnBMI + eqnAge + eqnBp
+                glucoseArray.append(eqnGlucose)
+
             }
             print(ageArray)
             print(glucoseArray)

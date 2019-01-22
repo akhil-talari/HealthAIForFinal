@@ -17,6 +17,25 @@ class StepsViewController: UIViewController {
     @IBOutlet weak var avgPaceLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
+    @IBOutlet weak var stepsHist: UIButton!
+    @IBOutlet weak var calHist: UIButton!
+    @IBOutlet weak var setBtn: UIButton!
+    
+    @IBOutlet weak var activityTypeLabel: UILabel!
+    
+    @IBOutlet weak var stepsView: UIView!
+    @IBOutlet weak var stepsSubView: UIView!
+    
+    
+    @IBOutlet weak var milesView: UIView!
+    @IBOutlet weak var milesSubView: UIView!
+    
+    @IBOutlet weak var paceView: UIView!
+    @IBOutlet weak var paceSubView: UIView!
+    
+    @IBOutlet weak var goalView: UIView!
+    @IBOutlet weak var goalSubView: UIView!
+    
     var record = 0
     var pass = 0
     var goal = 0
@@ -39,31 +58,99 @@ class StepsViewController: UIViewController {
     var averagePace:Double! = nil
     var pace:Double! = nil
     
-    //the pedometer
-    var pedometer = CMPedometer()
-    var savedEventId : String = ""
-    
-    @IBOutlet weak var setgoal: UILabel!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        if(record == 0){
-            loadit()
-        }
-
-        // Do any additional setup after loading the view.
-    }
-    
-    
-    @IBAction func slidechanger(_ sender: UISlider) {
+    @IBAction func sliderChange(_ sender: UISlider) {
         pass = Int(sender.value)
         setgoal.text = String(Int(sender.value))
     }
     
-    @IBAction func set(_ sender: Any) {
+    @IBAction func setBtn(_ sender: UIButton) {
         goal = pass
         setgoal.text = "Goal set!"
+        // create the alert
+        let alert = UIAlertController(title: "Kudos", message: "Goal set!", preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
+    
+    //the pedometer
+    var pedometer = CMPedometer()
+    private let activityManager = CMMotionActivityManager()
+    var savedEventId : String = ""
+
+    
+   
+    @IBOutlet weak var setgoal: UILabel!
+    override func viewDidLoad() {
+        super.viewDidAppear(true)
+        
+        
+        stepsView.layer.cornerRadius = 20
+        stepsView.layer.masksToBounds = true;
+        stepsSubView.layer.cornerRadius = 20
+        stepsSubView.layer.masksToBounds = true;
+        stepsSubView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        
+        milesView.layer.cornerRadius = 20
+        milesView.layer.masksToBounds = true;
+        milesSubView.layer.cornerRadius = 20
+        milesSubView.layer.masksToBounds = true;
+        milesSubView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        
+        paceView.layer.cornerRadius = 20
+        paceView.layer.masksToBounds = true;
+        paceSubView.layer.cornerRadius = 20
+        paceSubView.layer.masksToBounds = true;
+        paceSubView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        
+        goalView.layer.cornerRadius = 20
+        goalView.layer.masksToBounds = true;
+        goalSubView.layer.cornerRadius = 20
+        goalSubView.layer.masksToBounds = true;
+        goalSubView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        stepsHist.layer.cornerRadius = 20
+        calHist.layer.cornerRadius = 20
+        setBtn.layer.cornerRadius = 20
+        
+        
+        
+        if(record == 0){
+            loadit()
+            record = record * Int(0.3)
+        }
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    private func startTrackingActivityType() {
+        activityManager.startActivityUpdates(to: OperationQueue.main) {
+            [weak self] (activity: CMMotionActivity?) in
+            
+            guard let activity = activity else { return }
+            DispatchQueue.main.async {
+                if activity.walking {
+                    self?.activityTypeLabel.text = "Walking"
+                } else if activity.stationary {
+                    self?.activityTypeLabel.text = "Stationary"
+                } else if activity.running {
+                    self?.activityTypeLabel.text = "Running"
+                } else if activity.automotive {
+                    self?.activityTypeLabel.text = "Automotive"
+                }
+            }
+        }
+    }
+    
+    
+    
     
     func createEvent(eventStore: EKEventStore, title: String, startDate: NSDate, endDate: NSDate) {
         let event = EKEvent(eventStore: eventStore)
@@ -80,6 +167,36 @@ class StepsViewController: UIViewController {
     }
     
     func loadit(){
+        checkAuthorizationStatus()
+        startUpdating()
+    }
+        
+        
+    private func checkAuthorizationStatus() {
+        switch CMMotionActivityManager.authorizationStatus() {
+        case CMAuthorizationStatus.denied:
+            //onStop()
+            activityTypeLabel.text = "Not available"
+            stepsLabel.text = "Not available"
+        default:break
+        }
+    }
+    
+    private func startUpdating() {
+        if CMMotionActivityManager.isActivityAvailable() {
+            startTrackingActivityType()
+        } else {
+            activityTypeLabel.text = "Not available"
+        }
+        
+        if CMPedometer.isStepCountingAvailable() {
+            startCountingSteps()
+        } else {
+            stepsLabel.text = "Not available"
+        }
+    }
+    
+    private func startCountingSteps() {
         pedometer = CMPedometer()
         startTimer()
         pedometer.startUpdates(from: Date(), withHandler: { (pedometerData, error) in
@@ -101,6 +218,29 @@ class StepsViewController: UIViewController {
         })
         //Toggle the UI to on state
         statusTitle.text = "Pedometer On"
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "stepstostats" {
+            let dvc = segue.destination as! StepsstatsViewController
+            dvc.target1 = goal
+        }
+        
+        if segue.identifier == "stepstocalorie" {
+            let dvc = segue.destination as! stepscalorieViewController
+            
+        }
+    }
+  
+    
+    @IBAction func stepstostats(_ sender: Any) {
+        performSegue(withIdentifier: "stepstostats", sender: sender)
+      
+    }
+    
+    
+    @IBAction func stepstocalorie(_ sender: Any) {
+        performSegue(withIdentifier: "stepstocalorie", sender: sender)
     }
     
     
@@ -133,7 +273,7 @@ class StepsViewController: UIViewController {
         if let distance = self.distance{
             distanceLabel.text = String(format:"%02.02f mi",miles(meters: distance))
         } else {
-            distanceLabel.text = "-"
+            distanceLabel.text = "0 mi"
         }
         
         //average pace
@@ -152,7 +292,7 @@ class StepsViewController: UIViewController {
             //paceLabel.text =  paceString(title: "", pace: computedAvgPace())
         }
     }
-
+    
     
     func timeIntervalFormat(interval:TimeInterval)-> String{
         var seconds = Int(interval + 0.5) //round up seconds
@@ -171,7 +311,7 @@ class StepsViewController: UIViewController {
         }
         let minutes = Int(minPerMile)
         let seconds = Int(minPerMile * 60) % 60
-        return String(format: "%@: %02.2f m/s \n\t\t %02i:%02i min/mi",title,pace,minutes,seconds)
+        return String(format: "%@ %02.2f m/s \n\t\t %02i:%02i min/mi",title,pace,minutes,seconds)
     }
     
     func computedAvgPace()-> Double {
@@ -188,5 +328,23 @@ class StepsViewController: UIViewController {
         return meters * mile
     }
     
-
+    
+    
+    
+    
+    
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
+
+

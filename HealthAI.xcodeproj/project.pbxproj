@@ -25,6 +25,17 @@
 		6455C8E921642E36009F4D33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6455C8E721642E36009F4D33 /* Main.storyboard */; };
 		6455C8EB21642E38009F4D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6455C8EA21642E38009F4D33 /* Assets.xcassets */; };
 		6455C8EE21642E38009F4D33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6455C8EC21642E38009F4D33 /* LaunchScreen.storyboard */; };
+		6461B19A21B86E1100996E2A /* BMIfoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6461B19921B86E1100996E2A /* BMIfoodViewController.swift */; };
+		647511A321B89C4D004A90E3 /* PredictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647511A221B89C4D004A90E3 /* PredictViewController.swift */; };
+		647D901D21B46F40000C1978 /* ExamplesDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647D901C21B46F40000C1978 /* ExamplesDefault.swift */; };
+		647D901F21B46F67000C1978 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647D901E21B46F67000C1978 /* Env.swift */; };
+		6491CC2021B652FA00D75F16 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6491CC1F21B652FA00D75F16 /* AlertService.swift */; };
+		6491CC2221B6533100D75F16 /* HealthRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6491CC2121B6533100D75F16 /* HealthRecordCell.swift */; };
+		6491CC2421B6536A00D75F16 /* HealthRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6491CC2321B6536A00D75F16 /* HealthRecord.swift */; };
+		64F3A61C21B8D23F0072C7F5 /* stepscalorieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F3A61B21B8D23F0072C7F5 /* stepscalorieViewController.swift */; };
+		7448F3E121B6028000910BA3 /* StepsstatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448F3E021B6028000910BA3 /* StepsstatsViewController.swift */; };
+		7448F3E321B6EC3C00910BA3 /* RealmServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448F3E221B6EC3C00910BA3 /* RealmServices.swift */; };
+		74CE4A3D21B97D42001FBA17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74CE4A3C21B97D42001FBA17 /* GoogleService-Info.plist */; };
 		AE42F874218A23CD008AF49C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE42F873218A23CD008AF49C /* Alamofire.framework */; };
 		AE42F876218A23CD008AF49C /* ChameleonFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE42F875218A23CD008AF49C /* ChameleonFramework.framework */; };
 		AE42F878218A23CD008AF49C /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE42F877218A23CD008AF49C /* FirebaseAuth.framework */; };
@@ -84,7 +95,6 @@
 		B3428D1421753957000BEFAE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3428D1321753957000BEFAE /* RegisterViewController.swift */; };
 		B357476921811EEC00A141DC /* SlideAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357476821811EEC00A141DC /* SlideAnimation.swift */; };
 		B35747E92182A90000A141DC /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35747E82182A90000A141DC /* DatabaseHelper.swift */; };
-		B3B4787121AF509400A286B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3B4787021AF509400A286B1 /* GoogleService-Info.plist */; };
 		B3B6CC29219F62590095FECB /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CC28219F62590095FECB /* CalendarView.swift */; };
 		B3B6CC2B219F627C0095FECB /* WeekdaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CC2A219F627C0095FECB /* WeekdaysView.swift */; };
 		B3B6CC2D219F62940095FECB /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CC2C219F62940095FECB /* MonthView.swift */; };
@@ -129,6 +139,17 @@
 		6455C8EA21642E38009F4D33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6455C8ED21642E38009F4D33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6455C8EF21642E38009F4D33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6461B19921B86E1100996E2A /* BMIfoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIfoodViewController.swift; sourceTree = "<group>"; };
+		647511A221B89C4D004A90E3 /* PredictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictViewController.swift; sourceTree = "<group>"; };
+		647D901C21B46F40000C1978 /* ExamplesDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesDefault.swift; sourceTree = "<group>"; };
+		647D901E21B46F67000C1978 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		6491CC1F21B652FA00D75F16 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		6491CC2121B6533100D75F16 /* HealthRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordCell.swift; sourceTree = "<group>"; };
+		6491CC2321B6536A00D75F16 /* HealthRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecord.swift; sourceTree = "<group>"; };
+		64F3A61B21B8D23F0072C7F5 /* stepscalorieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stepscalorieViewController.swift; sourceTree = "<group>"; };
+		7448F3E021B6028000910BA3 /* StepsstatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsstatsViewController.swift; sourceTree = "<group>"; };
+		7448F3E221B6EC3C00910BA3 /* RealmServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServices.swift; sourceTree = "<group>"; };
+		74CE4A3C21B97D42001FBA17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AE42F873218A23CD008AF49C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE42F875218A23CD008AF49C /* ChameleonFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ChameleonFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE42F877218A23CD008AF49C /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,7 +210,6 @@
 		B3428D1321753957000BEFAE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B357476821811EEC00A141DC /* SlideAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideAnimation.swift; sourceTree = "<group>"; };
 		B35747E82182A90000A141DC /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
-		B3B4787021AF509400A286B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B3B6CC28219F62590095FECB /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		B3B6CC2A219F627C0095FECB /* WeekdaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaysView.swift; sourceTree = "<group>"; };
 		B3B6CC2C219F62940095FECB /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
@@ -299,7 +319,7 @@
 				6455C8EA21642E38009F4D33 /* Assets.xcassets */,
 				6455C8EC21642E38009F4D33 /* LaunchScreen.storyboard */,
 				6455C8EF21642E38009F4D33 /* Info.plist */,
-				B3B4787021AF509400A286B1 /* GoogleService-Info.plist */,
+				74CE4A3C21B97D42001FBA17 /* GoogleService-Info.plist */,
 				B30E75C2217E77ED00231ED3 /* Supporting Files */,
 			);
 			path = HealthAI;
@@ -352,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				6455C8E721642E36009F4D33 /* Main.storyboard */,
+				7448F3E021B6028000910BA3 /* StepsstatsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -393,6 +414,8 @@
 		B30E7790218923470074D71E /* MainPageController */ = {
 			isa = PBXGroup;
 			children = (
+				647511A221B89C4D004A90E3 /* PredictViewController.swift */,
+				64F3A61B21B8D23F0072C7F5 /* stepscalorieViewController.swift */,
 				B30E61BE21754163004135B9 /* HealthMainViewController.swift */,
 				6455C8E521642E36009F4D33 /* ViewController.swift */,
 				B3428D1321753957000BEFAE /* RegisterViewController.swift */,
@@ -402,6 +425,7 @@
 				6418CCF4218A77CA0072951B /* WorkoutTableViewCell.swift */,
 				6418CCF5218A77CA0072951B /* WorkoutTableViewCell.xib */,
 				AE42F893218A26BB008AF49C /* BMIViewController.swift */,
+				6461B19921B86E1100996E2A /* BMIfoodViewController.swift */,
 				6418CCFC218A8AF70072951B /* DiabetesScoreViewController.swift */,
 				6418CCFE218AA4000072951B /* CalorieViewController.swift */,
 				642BA2F5218AAB65009568AD /* GraphViewController.swift */,
@@ -418,12 +442,18 @@
 				B3B6CC2E219F62D70095FECB /* CalendarViewController.swift */,
 				B3B6CC3021A1E5930095FECB /* CalendarDetailTableViewController.swift */,
 				B3B6CC5621A7039E0095FECB /* CalendarDetailCardioTableViewController.swift */,
+				7448F3E221B6EC3C00910BA3 /* RealmServices.swift */,
 				B3B6CC5821A703B20095FECB /* CalendarDetailStrengthTableViewController.swift */,
 				B3B6CCC021AA1BB00095FECB /* ExpandableHeaderView.swift */,
 				B3B6CCC221AA1C3A0095FECB /* StrengthWorkoutVC.swift */,
 				B3B6CCC321AA1C3A0095FECB /* StrengthWorkoutVC.xib */,
+				647D901E21B46F67000C1978 /* Env.swift */,
+				647D901C21B46F40000C1978 /* ExamplesDefault.swift */,
 				B3B6CCC621AA1CA00095FECB /* CalendarStrengthDetailTableViewController.swift */,
 				B340DE7321B1DECE00FE2FCE /* VideosTableViewController.swift */,
+				6491CC1F21B652FA00D75F16 /* AlertService.swift */,
+				6491CC2121B6533100D75F16 /* HealthRecordCell.swift */,
+				6491CC2321B6536A00D75F16 /* HealthRecord.swift */,
 			);
 			path = MainPageController;
 			sourceTree = "<group>";
@@ -505,6 +535,7 @@
 			files = (
 				6418CCF7218A77CA0072951B /* WorkoutTableViewCell.xib in Resources */,
 				B3B6CCC521AA1C3A0095FECB /* StrengthWorkoutVC.xib in Resources */,
+				74CE4A3D21B97D42001FBA17 /* GoogleService-Info.plist in Resources */,
 				6455C8EE21642E38009F4D33 /* LaunchScreen.storyboard in Resources */,
 				6455C8EB21642E38009F4D33 /* Assets.xcassets in Resources */,
 				6455C8E921642E36009F4D33 /* Main.storyboard in Resources */,
@@ -527,7 +558,6 @@
 				B340DE9021B2694400FE2FCE /* BMC.MOV in Resources */,
 				B340DE9121B2694500FE2FCE /* BS.MOV in Resources */,
 				B340DE9221B2694500FE2FCE /* SM.MOV in Resources */,
-				B3B4787121AF509400A286B1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,13 +625,14 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PDFGenerator/PDFGenerator.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TKSubmitTransition/TKSubmitTransition.framework",
@@ -620,13 +651,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PDFGenerator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TKSubmitTransition.framework",
@@ -645,19 +677,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7448F3E121B6028000910BA3 /* StepsstatsViewController.swift in Sources */,
 				64303E7F218A6B1500A59AF3 /* WorkoutClockViewController.swift in Sources */,
 				B3147F4A2193E8F4000A429D /* SubWorkoutsViewController.swift in Sources */,
 				B357476921811EEC00A141DC /* SlideAnimation.swift in Sources */,
 				B30E75C1217E77E100231ED3 /* CardView.swift in Sources */,
 				64303E79218A65B200A59AF3 /* TodoLIstViewController.swift in Sources */,
+				6461B19A21B86E1100996E2A /* BMIfoodViewController.swift in Sources */,
 				6418CCFF218AA4000072951B /* CalorieViewController.swift in Sources */,
 				B3EA6143219A7AA600D66927 /* CardioWorkoutItem.swift in Sources */,
+				6491CC2421B6536A00D75F16 /* HealthRecord.swift in Sources */,
 				B30E77922189236B0074D71E /* WorkoutViewController.swift in Sources */,
 				B311DCEB217F808500F8C8E3 /* SidebarView.swift in Sources */,
 				B33A027721AB02B500D2E0D4 /* StrengthSubworkoutCell.swift in Sources */,
 				B3B6CCC721AA1CA00095FECB /* CalendarStrengthDetailTableViewController.swift in Sources */,
 				642BA2F6218AAB65009568AD /* GraphViewController.swift in Sources */,
 				B35747E92182A90000A141DC /* DatabaseHelper.swift in Sources */,
+				64F3A61C21B8D23F0072C7F5 /* stepscalorieViewController.swift in Sources */,
+				647D901F21B46F67000C1978 /* Env.swift in Sources */,
 				B3B6CC2F219F62D70095FECB /* CalendarViewController.swift in Sources */,
 				B3B6CC2D219F62940095FECB /* MonthView.swift in Sources */,
 				6455C8E621642E36009F4D33 /* ViewController.swift in Sources */,
@@ -665,6 +702,7 @@
 				64303E7B218A667B00A59AF3 /* WorkoutHistoryTableViewController.swift in Sources */,
 				B3B6CC3721A548530095FECB /* CalendarHistoryCell.swift in Sources */,
 				6455C8E421642E36009F4D33 /* AppDelegate.swift in Sources */,
+				6491CC2221B6533100D75F16 /* HealthRecordCell.swift in Sources */,
 				B3B6CC5921A703B20095FECB /* CalendarDetailStrengthTableViewController.swift in Sources */,
 				B310142D2186A5FC00324155 /* BioCell.swift in Sources */,
 				B3B6CCC421AA1C3A0095FECB /* StrengthWorkoutVC.swift in Sources */,
@@ -672,8 +710,11 @@
 				6418CCF6218A77CA0072951B /* WorkoutTableViewCell.swift in Sources */,
 				B3147F482193E71C000A429D /* SubworkoutHistoryItem.swift in Sources */,
 				B3147F442193E6E9000A429D /* SubworkoutItem.swift in Sources */,
+				647D901D21B46F40000C1978 /* ExamplesDefault.swift in Sources */,
+				647511A321B89C4D004A90E3 /* PredictViewController.swift in Sources */,
 				B3147F4C2193EBAF000A429D /* HistoryDetailTableViewController.swift in Sources */,
 				642BA2FC218AB0BE009568AD /* CalorieTableViewController.swift in Sources */,
+				6491CC2021B652FA00D75F16 /* AlertService.swift in Sources */,
 				B340DE7621B1E1A800FE2FCE /* VideoCell.swift in Sources */,
 				AE42F896218A3818008AF49C /* StepsViewController.swift in Sources */,
 				B3B6CCC121AA1BB00095FECB /* ExpandableHeaderView.swift in Sources */,
@@ -689,6 +730,7 @@
 				B3147F462193E704000A429D /* WorkoutHistoryItem.swift in Sources */,
 				B3B6CCBF21AA1B500095FECB /* Section.swift in Sources */,
 				6418CCFD218A8AF70072951B /* DiabetesScoreViewController.swift in Sources */,
+				7448F3E321B6EC3C00910BA3 /* RealmServices.swift in Sources */,
 				B3B6CC29219F62590095FECB /* CalendarView.swift in Sources */,
 				B3B6CC3121A1E5930095FECB /* CalendarDetailTableViewController.swift in Sources */,
 				B310142B2186A5E900324155 /* ProfileTableViewCell.swift in Sources */,
@@ -845,13 +887,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HealthAI/HealthAI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R8WJTP4GXR;
+				DEVELOPMENT_TEAM = STWPUGNP5T;
 				INFOPLIST_FILE = HealthAI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lonelymountain;
+				PRODUCT_BUNDLE_IDENTIFIER = akhil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -865,13 +907,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HealthAI/HealthAI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R8WJTP4GXR;
+				DEVELOPMENT_TEAM = STWPUGNP5T;
 				INFOPLIST_FILE = HealthAI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lonelymountain;
+				PRODUCT_BUNDLE_IDENTIFIER = akhil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

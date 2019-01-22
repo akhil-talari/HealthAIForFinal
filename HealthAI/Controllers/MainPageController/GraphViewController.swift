@@ -18,13 +18,13 @@ class GraphViewController: UIViewController {
    
     @IBOutlet weak var piechart: PieChartView!
     
-    var currentDayCal = PieChartDataEntry(value: 0)
-    var remainingDayCal = PieChartDataEntry(value: 0)
-    var calorieScore  = [PieChartDataEntry]()
+    var goalValue:Int = 0
+    var currentValue:Int = 0
+    var remainingValue:Int = 0
     
-    var goalValue = 0
-    var currentValue = 0
-    var remainingValue = 0
+    
+    
+    var calorieScore  = [PieChartDataEntry]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,11 @@ class GraphViewController: UIViewController {
         
         currentCal.text = "\(currentValue)"
         remainingValue = goalValue - currentValue
-        
         remainingCal.text = "\(remainingValue)"
+        
+        var currentDayCal = PieChartDataEntry(value: Double(exactly: currentValue)!, label: "Current")
+        var remainingDayCal = PieChartDataEntry(value: Double(exactly: remainingValue)!, label: "Remaining")
+        
         
         
         calorieScore = [currentDayCal, remainingDayCal]
@@ -56,13 +59,18 @@ class GraphViewController: UIViewController {
     
     
     func updateChart(){
-        let chartDataSet = PieChartDataSet(values: calorieScore, label: nil)
+        piechart.chartDescription?.enabled = false
+        piechart.drawHoleEnabled = false
+        piechart.rotationAngle = 0
+        piechart.rotationEnabled = false
+        piechart.isUserInteractionEnabled = false
         
-        let chartData = PieChartData(dataSet: chartDataSet)
+        let dataset = PieChartDataSet(values: calorieScore, label: "")
+        print("CalorieScore  ", calorieScore)
         
-        let colors = [UIColor.red, UIColor.blue]
-        chartDataSet.colors = colors
-        piechart.data = chartData
+        dataset.colors = [UIColor.red, UIColor.blue]
+        dataset.drawValuesEnabled = false
+        piechart.data = PieChartData(dataSet: dataset)
     }
     
 }

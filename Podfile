@@ -22,6 +22,8 @@ pod 'Charts'
 pod 'GoogleSignIn'
 pod 'FacebookCore'
 pod 'FacebookLogin'
+pod 'SwiftCharts', '~> 0.6.3'
+pod 'PDFGenerator', '~> 3.0'
 
 
 end

@@ -103,6 +103,7 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         self.diabeteView.layer.cornerRadius = 10.0
         self.counterView.layer.cornerRadius = 10.0
 
+        self.counterView.clipsToBounds = true
     }
     
     

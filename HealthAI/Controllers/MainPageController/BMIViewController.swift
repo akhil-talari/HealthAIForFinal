@@ -10,8 +10,12 @@ import UIKit
 
 class BMIViewController: UIViewController {
 
+    
+    var status: Int?
     @IBOutlet weak var GenderSC: UISegmentedControl!
     
+    @IBOutlet weak var maintainButton: UIButton!
+    @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var heightSlider: UISlider!
     @IBOutlet weak var heightValueLabel: UILabel!
@@ -34,21 +38,57 @@ class BMIViewController: UIViewController {
     var current_gender:Int = 0
     var current_activity:Int = 0
     
+    @IBOutlet weak var bmiscrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
          self.title = "BMI Calculator"
-
+        bmiscrollView.keyboardDismissMode = .onDrag
+        
+goButton.layer.cornerRadius = 20
+        maintainButton.layer.cornerRadius = 20
         // Do any additional setup after loading the view.
     }
+    @IBAction func maintainButton(_ sender: Any) {
+        if calculatedValue.text == ""{
+            let alert = UIAlertController(title: "Field is empty", message: "Please enter fields and click on Go!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in alert.dismiss(animated: true, completion: nil)}
+            ))
+            self.present(alert,animated: true,completion: nil)
+        }
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if calculatedValue.text == ""{
+            let alert = UIAlertController(title: "Field is empty", message: "Please enter fields and click on Go!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in alert.dismiss(animated: true, completion: nil)}
+            ))
+            self.present(alert,animated: true,completion: nil)
+        }
+        else {
+        if segue.identifier == "bmiToFood" {
+            let dvc = segue.destination as! BMIfoodViewController
+            dvc.newstatus = status!
+        }
+        }
+        
+    }
     @IBAction func goButton(_ sender: Any) {
+        
+        if self.ageField.text == ""{
+            let alert = UIAlertController(title: "Field is empty", message: "Please fill in all the fields", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in alert.dismiss(animated: true, completion: nil)}
+            ))
+            self.present(alert,animated: true,completion: nil)
+        }
+        else{
         self.calculateBMI()
         self.calculateBMR()
         self.calories()
         self.calculateIBW()
+        }
     }
-    
+
     @IBAction func genderChanged(_ sender: Any) {
         switch GenderSC.selectedSegmentIndex {
         case 0:
@@ -170,15 +210,19 @@ class BMIViewController: UIViewController {
         if (bmi < 18) {
             statusLabel.text = "UNDER-WEIGHT"
             statusLabel.textColor = UIColor.blue
+            status = 0
         } else if (bmi >= 18 && bmi < 25) {
             statusLabel.text = "Normal"
             statusLabel.textColor = UIColor.green
+            status = 1
         } else if (bmi >= 25 && bmi < 30) {
             statusLabel.text = "Pre-Obese"
             statusLabel.textColor = UIColor.purple
+            status = 2
         } else {
             statusLabel.text = "OBESE"
             statusLabel.textColor = UIColor.red
+            status = 3
         }
     }
     

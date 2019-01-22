@@ -169,7 +169,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         speed = (manager.location?.speed)!
         print("Speed:\(speed) mph ")
         
-        speedLabel.text = String(format: "%.2f", speed) + " Meter/S"
+        speedLabel.text = String(format: "%.2f", speed) + " m/s"
         
         if startLocation == nil {
             startLocation = locations.first

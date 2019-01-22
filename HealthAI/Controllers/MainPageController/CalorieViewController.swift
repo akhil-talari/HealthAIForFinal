@@ -14,6 +14,24 @@ class CalorieViewController: UIViewController, UITextFieldDelegate,UIPickerViewD
     
     let realm = try! Realm()
     
+    @IBOutlet weak var goalBtn: UIButton!
+    @IBOutlet weak var foodNameView: UIView!
+    @IBOutlet weak var foodNameSubView: UIView!
+    
+    @IBOutlet weak var inputCalories: UIView!
+    @IBOutlet weak var inputCaloriesSubView: UIView!
+    
+    @IBOutlet weak var amountViews: UIView!
+    @IBOutlet weak var amountSubView: UIView!
+    
+    
+ 
+    @IBOutlet weak var addBtn: UIButton!
+    
+    @IBOutlet weak var caloriesBtn: UIButton!
+    
+    
+    @IBOutlet weak var amount: UITextField!
     @IBOutlet weak var goalText: UITextField!
     @IBOutlet weak var caloriesText: UITextField!
     @IBOutlet weak var foodName: UITextField!
@@ -28,17 +46,54 @@ class CalorieViewController: UIViewController, UITextFieldDelegate,UIPickerViewD
     
     var resultModel : Results<CalorieDataModel>?
     
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         //        caloriesText.keyboardType = UIKeyboardType.numberPad
         caloriesText.delegate = self
         goalText.delegate = self
+        amount.delegate = self
+        
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: Selector("endEditing:"))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
         
         loadCalorieHistory()
         self.mealPicker.delegate = self
         self.mealPicker.dataSource = self
         
         // Do any additional setup after loading the view.
+        
+       goalBtn.layer.cornerRadius = 20
+        foodNameView.layer.cornerRadius = 20
+        
+        addBtn.layer.cornerRadius = 20
+        caloriesBtn.layer.cornerRadius = 20
+        
+        
+        foodNameView.layer.masksToBounds = true;
+        foodNameSubView.layer.cornerRadius = 20
+        foodNameSubView.layer.masksToBounds = true;
+        foodNameSubView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        
+        inputCalories.layer.cornerRadius = 20
+        inputCalories.layer.masksToBounds = true;
+        inputCaloriesSubView.layer.cornerRadius = 20
+        inputCaloriesSubView.layer.masksToBounds = true;
+        inputCaloriesSubView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        
+        amountViews.layer.cornerRadius = 20
+        amountViews.layer.masksToBounds = true;
+        amountSubView.layer.cornerRadius = 20
+        amountSubView.layer.masksToBounds = true;
+        amountSubView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        
     }
     
     func loadCalorieHistory(){
@@ -103,12 +158,17 @@ class CalorieViewController: UIViewController, UITextFieldDelegate,UIPickerViewD
     
     @IBAction func addButton(_ sender: Any) {
         
-                if (foodName.text?.count)! > 0 && (caloriesText.text?.count)! > 0{
+                if (foodName.text?.count)! > 0 && (caloriesText.text?.count)! > 0 && (amount.text?.count)! > 0{
         
                     let result = CalorieDataModel()
         
                     result.foodName = foodName.text!
                     result.calorieCount = caloriesText.text!
+                    result.amount = amount.text!
+                    
+                    if(mealType == ""){
+                        mealType = "Breakfast"
+                    }
                     print(mealType)
                     result.mealTypeData = mealType
         
@@ -123,6 +183,8 @@ class CalorieViewController: UIViewController, UITextFieldDelegate,UIPickerViewD
         
                     foodName.text = ""
                     caloriesText.text = ""
+                    amount.text = ""
+
         
         
                     performSegue(withIdentifier: "addtotable", sender: self)
@@ -141,10 +203,16 @@ class CalorieViewController: UIViewController, UITextFieldDelegate,UIPickerViewD
     @IBAction func CalorieButton(_ sender: Any) {
                 foodName.text = ""
                 caloriesText.text = ""
+        amount.text = ""
+
                 performSegue(withIdentifier: "addtotable", sender: self)
     }
     
     @IBAction func goalButton(_ sender: Any) {
+//        if (realm.objects(CalorieDataModel.self).filter("goalCount != ").count > 0){
+//            goalText.text =
+//        }
+//
         if (goalText.text?.count)! > 0 {
             
             
